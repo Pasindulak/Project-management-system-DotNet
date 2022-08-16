@@ -20,5 +20,28 @@ namespace PMS_Net.Controllers
         {
             return _ProjectRepo.getProjects();
         }
+
+        [HttpPost("{name}")]
+        public ActionResult createProject(string name)
+        {
+            _ProjectRepo.createProject(new Project { Name = name });
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult deleteProject(int id)
+        {
+            if (_ProjectRepo.deleteProject(id))
+                return Ok();
+            return BadRequest();
+        }
+
+        [HttpPut("{id},{name}")]
+        public ActionResult updateProject(int id, string name)
+        {
+            if (_ProjectRepo.updateProject(id, new Project { Id = id, Name = name }))
+                return Ok();
+            return BadRequest();
+        }
     }
 }

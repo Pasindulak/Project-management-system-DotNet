@@ -26,18 +26,26 @@ namespace PMS_Net.Repo
             _projectList.Add(project);
         }
 
-        public void deleteProject(int id)
+        public bool deleteProject(int id)
         {
             int index = _projectList.FindIndex(project => project.Id == id);
             if (index != -1)
+            {
                 _projectList.RemoveAt(index);
+                return true;
+            }
+            return false;
         }
 
-        public void updateProject(int id, Project project)
+        public bool updateProject(int id, Project project)
         {
             int index = _projectList.FindIndex(p => p.Id == id);
             if (index != -1)
+            {
                 _projectList[index] = project;
+                return true;
+            }
+            return false;
         }
     }
 }

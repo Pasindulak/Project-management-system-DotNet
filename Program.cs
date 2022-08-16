@@ -19,5 +19,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseCors(
+        options => options.WithOrigins("http://localhost").AllowAnyOrigin()
+    );
 app.Run();

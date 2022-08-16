@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PMS_Net.Models;
+using PMS_Net.Repo;
 
 namespace PMS_Net.Controllers
 {
@@ -6,17 +8,17 @@ namespace PMS_Net.Controllers
     [Route("projects")]
     public class ProjectController : ControllerBase
     {
-        private string data;
-        public ProjectController()
+        private ProjectRepo _ProjectRepo;
+        public ProjectController(ProjectRepo _ProjectRepo)
         {
-            data = System.IO.File.ReadAllText("projects.json");
+            this._ProjectRepo = _ProjectRepo;
 
         }
 
         [HttpGet]
-        public ActionResult<string> getProjects()
+        public ActionResult<List<Project>> getProjects()
         {
-            return data;
+            return _ProjectRepo.getProjects();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace PMS_Net.Repo
             string data = System.IO.File.ReadAllText("projects.json");
             JToken jObject = JObject.Parse(data);
             jObject = jObject["projects"];
-            System.Console.WriteLine(jObject.ToString());
             _projectList = JsonConvert.DeserializeObject<List<Project>>(jObject.ToString());
         }
         public List<Project> getProjects()
@@ -39,6 +38,7 @@ namespace PMS_Net.Repo
 
         public bool updateProject(int id, Project project)
         {
+            project.Id =id;
             int index = _projectList.FindIndex(p => p.Id == id);
             if (index != -1)
             {

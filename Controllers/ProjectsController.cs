@@ -5,7 +5,7 @@ using PMS_Net.Repo;
 namespace PMS_Net.Controllers
 {
     [ApiController]
-    [Route("api/[Controller]")]
+    [Route("api/projects")]
     public class ProjectsController : ControllerBase
     {
         private ProjectRepo _ProjectRepo;
@@ -21,10 +21,10 @@ namespace PMS_Net.Controllers
             return _ProjectRepo.getProjects();
         }
 
-        [HttpPost("{name}")]
-        public ActionResult createProject(string name)
+        [HttpPost]
+        public ActionResult createProject(Project project)
         {
-            _ProjectRepo.createProject(new Project { Name = name });
+            _ProjectRepo.createProject(project);
             return Ok();
         }
 
@@ -36,10 +36,10 @@ namespace PMS_Net.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{id},{name}")]
-        public ActionResult updateProject(int id, string name)
+        [HttpPut("{id}")]
+        public ActionResult updateProject(int id, Project project)
         {
-            if (_ProjectRepo.updateProject(id, new Project { Id = id, Name = name }))
+            if (_ProjectRepo.updateProject(id, project))
                 return Ok();
             return BadRequest();
         }

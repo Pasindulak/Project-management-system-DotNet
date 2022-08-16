@@ -5,11 +5,11 @@ using PMS_Net.Repo;
 namespace PMS_Net.Controllers
 {
     [ApiController]
-    [Route("projects")]
-    public class ProjectController : ControllerBase
+    [Route("api/[Controller]")]
+    public class ProjectsController : ControllerBase
     {
         private ProjectRepo _ProjectRepo;
-        public ProjectController(ProjectRepo _ProjectRepo)
+        public ProjectsController(ProjectRepo _ProjectRepo)
         {
             this._ProjectRepo = _ProjectRepo;
 

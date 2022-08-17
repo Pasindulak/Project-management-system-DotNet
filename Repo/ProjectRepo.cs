@@ -21,10 +21,11 @@ namespace PMS_Net.Repo
             return _projectList;
         }
 
-        public void create(Project project)
+        public int create(Project project)
         {
             project.Id = _projectList.Count + 1;
             _projectList.Add(project);
+            return project.Id;
         }
 
         public bool delete(int id)

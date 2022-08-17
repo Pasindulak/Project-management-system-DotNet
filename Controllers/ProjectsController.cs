@@ -22,10 +22,13 @@ namespace PMS_Net.Controllers
         }
 
         [HttpPost]
-        public ActionResult createProject(Project project)
+        public ActionResult<Dictionary<string, int>> createProject(Project project)
         {
-            _ProjectRepo.create(project);
-            return Ok();
+            int id = _ProjectRepo.create(project);
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            result.Add("id", id);
+            return result;
+            
         }
 
         [HttpDelete("{id}")]

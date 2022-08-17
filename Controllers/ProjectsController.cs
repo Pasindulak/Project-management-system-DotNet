@@ -18,20 +18,20 @@ namespace PMS_Net.Controllers
         [HttpGet]
         public ActionResult<List<Project>> getProjects()
         {
-            return _ProjectRepo.getProjects();
+            return _ProjectRepo.getAll();
         }
 
         [HttpPost]
         public ActionResult createProject(Project project)
         {
-            _ProjectRepo.createProject(project);
+            _ProjectRepo.create(project);
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public ActionResult deleteProject(int id)
         {
-            if (_ProjectRepo.deleteProject(id))
+            if (_ProjectRepo.delete(id))
                 return Ok();
             return BadRequest();
         }
@@ -39,7 +39,7 @@ namespace PMS_Net.Controllers
         [HttpPut("{id}")]
         public ActionResult updateProject(int id, Project project)
         {
-            if (_ProjectRepo.updateProject(id, project))
+            if (_ProjectRepo.update(id, project))
                 return Ok();
             return BadRequest();
         }

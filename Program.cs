@@ -1,3 +1,4 @@
+using PMS_Net.Models;
 using PMS_Net.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 //Dependancy Injection
 builder.Services.AddSingleton<ProjectRepo>();
+builder.Services.AddSingleton<Connection>();
 
 var app = builder.Build();
 

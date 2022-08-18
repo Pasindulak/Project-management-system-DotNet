@@ -11,7 +11,7 @@ using PMS_Net.Data;
 namespace PMS_Net.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220818083214_InitialDb")]
+    [Migration("20220818111804_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace PMS_Net.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Project");
                 });
 #pragma warning restore 612, 618
         }

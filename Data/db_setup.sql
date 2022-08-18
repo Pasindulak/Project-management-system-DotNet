@@ -1,5 +1,5 @@
 
-INSERT INTO [Projectdb].[dbo].[Projects] VALUES
+INSERT INTO [Projectdb].[dbo].[Project] VALUES
 ('Project Breeze'),
 ('Command Program'),
 ('Project Point'),
@@ -9,4 +9,4 @@ INSERT INTO [Projectdb].[dbo].[Projects] VALUES
 ('Dynamic Program'),
 ('Project Zenen');
 
-select * from [Projectdb].[dbo].[Projects]
+select * from [Projectdb].[dbo].[Project]

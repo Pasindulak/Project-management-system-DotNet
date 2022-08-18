@@ -3,19 +3,20 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PMS_Net.Data;
 using PMS_Net.Models;
+using PMS_Net.Models.Repositorys;
 
 namespace PMS_Net.Repo
 {
     public class ProjectRepo :IProjectRepo
     {
         private Connection _connection;
-        private readonly AppDbContext _context;
+        private readonly IProjectRepository _dbProject;
 
-        public ProjectRepo(Connection con, AppDbContext context)
+        public ProjectRepo(Connection con, IProjectRepository dbProject)
         {
             //Read local JSON file and initiate project list
             _connection = con;
-            _context = context;
+            _dbProject = dbProject
 
         }
         public List<Project> getAll()

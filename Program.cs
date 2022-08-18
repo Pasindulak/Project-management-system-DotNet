@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PMS_Net.Data;
 using PMS_Net.Models;
+using PMS_Net.Models.Repositorys;
 using PMS_Net.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Dependancy Injection
-//builder.Services.AddSingleton<IProjectRepo,ProjectRepo>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddSingleton<Connection>();
 
 var app = builder.Build();

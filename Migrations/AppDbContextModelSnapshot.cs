@@ -35,7 +35,7 @@ namespace PMS_Net.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Project");
                 });
 #pragma warning restore 612, 618
         }

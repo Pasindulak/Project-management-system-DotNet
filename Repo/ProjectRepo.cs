@@ -5,7 +5,7 @@ using PMS_Net.Models;
 
 namespace PMS_Net.Repo
 {
-    public class ProjectRepo
+    public class ProjectRepo :IProjectRepo
     {
         private Connection _connection;
 

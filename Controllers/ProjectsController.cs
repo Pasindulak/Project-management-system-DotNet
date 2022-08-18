@@ -8,8 +8,8 @@ namespace PMS_Net.Controllers
     [Route("api/projects")]
     public class ProjectsController : ControllerBase
     {
-        private ProjectRepo _ProjectRepo;
-        public ProjectsController(ProjectRepo _ProjectRepo)
+        private IProjectRepo _ProjectRepo;
+        public ProjectsController(IProjectRepo _ProjectRepo)
         {
             this._ProjectRepo = _ProjectRepo;
 

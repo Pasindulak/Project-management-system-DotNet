@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Dependancy Injection
-builder.Services.AddSingleton<ProjectRepo>();
+builder.Services.AddSingleton<IProjectRepo,ProjectRepo>();
 builder.Services.AddSingleton<Connection>();
 
 var app = builder.Build();

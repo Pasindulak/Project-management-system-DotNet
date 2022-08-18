@@ -5,7 +5,7 @@ using PMS_Net.Repo;
 namespace PMS_Net.Controllers
 {
     [ApiController]
-    [Route("api/projects")]
+    [Route("projects")]
     public class ProjectsController : ControllerBase
     {
         private IProjectRepo _ProjectRepo;

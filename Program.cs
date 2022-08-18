@@ -16,7 +16,8 @@ builder.Services.AddSingleton<Connection>();
 
 var app = builder.Build();
 
-
+app.UsePathBase("/api");
+app.UseRouting();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

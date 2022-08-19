@@ -4,37 +4,37 @@ using System.Linq.Expressions;
 
 namespace PMS_Net.Models.Repositorys
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly AppDbContext _connection;
-        internal DbSet<TEntity> dbSet;
+        internal DbSet<T> dbSet;
         public Repository(AppDbContext connection)
         {
             _connection = connection;
-            this.dbSet = connection.Set<TEntity>();
+            this.dbSet = connection.Set<T>();
         }
 
-        public void Add(TEntity entity)
+        public void Add(T entity)
         {
             dbSet.Add(entity);
         }
 
-        public IEnumerable<TEntity> GetAllProjects()
+        public IEnumerable<T> GetAllProjects()
         {
-            IQueryable<TEntity> query = dbSet;
+            IQueryable<T> query = dbSet;
             return query.ToList();
         }
 
-        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>>? filter = null)
+        public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null)
         {
-            IQueryable<TEntity> query = dbSet;
+            IQueryable<T> query = dbSet;
             if(filter != null) {
                 query = query.Where(filter);
             }
             return query.FirstOrDefault();
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(T entity)
         {
             dbSet.Remove(entity);
         }

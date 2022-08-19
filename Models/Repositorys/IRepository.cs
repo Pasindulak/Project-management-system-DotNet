@@ -2,11 +2,11 @@
 
 namespace PMS_Net.Models.Repositorys
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<T> where T : class
     {
-        IEnumerable<TEntity> GetAllProjects();
-        void Add(TEntity entity);
-        void Remove(TEntity entity);
-        TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>>? filter = null);
+        IEnumerable<T> GetAllProjects();
+        void Add(T entity);
+        void Remove(T entity);
+        T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null);
     }
 }

@@ -16,7 +16,7 @@ namespace PMS_Net.Repo
         {
             //Read local JSON file and initiate project list
             _connection = con;
-            _dbProject = dbProject
+            _dbProject = dbProject;
 
         }
         public List<Project> getAll()
